@@ -1,35 +1,126 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${pagina.titulo} + ' - Wiki'">Wiki</title>
+    <title th:text="${pagina.titulo} + ' - Wiki de Videojuegos'">Wiki</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
 
-<div th:insert="layout.html :: header"></div>
-<div th:insert="layout.html :: navigation"></div>
+    <div th:replace="~{layout.html :: header}"></div>
+    <div th:replace="~{layout.html :: navigation}"></div>
 
-<main class="container">
-    <section class="content">
-        <article class="wiki-article">
-            <h1 th:text="${pagina.titulo}"></h1>
-            
-            <div class="article-body">
-                <p th:text="${pagina.contenido}"></p>
+    <main class="container">
+        <section class="content" th:if="${pagina != null}">
+            <article class="wiki-article">
+                <h1 th:text="${pagina.titulo}">Título del juego</h1>
+
+                <!-- Información general -->
+                <div class="game-info-grid">
+                    <div class="info-card">
+                        <strong>Desarrollador</strong>
+                        <p th:text="${pagina.desarrollador}">Desarrollador</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>Publisher</strong>
+                        <p th:text="${pagina.publisher}">Publisher</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>Fecha de lanzamiento</strong>
+                        <p th:text="${#temporals.format(pagina.fechaLanzamiento, 'dd/MM/yyyy')}">01/01/2020</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>Calificación</strong>
+                        <p>
+                            <span class="badge badge-score-lg" th:text="${pagina.calificacion} + '/10'">9.5/10</span>
+                        </p>
+                    </div>
+                    <div class="info-card">
+                        <strong>Jugadores</strong>
+                        <p th:text="${pagina.numeroJugadores}">1</p>
+                    </div>
+                    <div class="info-card">
+                        <strong>Multijugador Online</strong>
+                        <p th:if="${pagina.multijugadorOnline}" class="text-success">✔ Sí</p>
+                        <p th:unless="${pagina.multijugadorOnline}" class="text-muted">✘ No</p>
+                    </div>
+                </div>
+
+                <!-- Clasificación de edad -->
+                <div class="classification-badge" th:switch="${pagina.clasificacionEdad}">
+                    <span th:case="'E'" class="age-badge age-everyone">E - Everyone</span>
+                    <span th:case="'E10+'" class="age-badge age-everyone10">E10+ - Everyone 10+</span>
+                    <span th:case="'T'" class="age-badge age-teen">T - Teen</span>
+                    <span th:case="'M'" class="age-badge age-mature">M - Mature 17+</span>
+                    <span th:case="*" class="age-badge" th:text="${pagina.clasificacionEdad}">Rating</span>
+                </div>
+
+                <!-- Descripción -->
+                <div class="article-body">
+                    <h2>Descripción</h2>
+                    <p th:text="${pagina.contenido}">Contenido breve</p>
+                </div>
+
+                <!-- Contenido detallado -->
+                <div class="article-body" th:if="${pagina.contenidoDetallado != null}">
+                    <h2>Análisis detallado</h2>
+                    <p th:text="${pagina.contenidoDetallado}">Contenido detallado</p>
+                </div>
+
+                <!-- Géneros -->
+                <div class="article-section" th:if="${pagina.generos != null and not #lists.isEmpty(pagina.generos)}">
+                    <h2>Géneros</h2>
+                    <div class="tags-container">
+                        <a th:each="genero : ${pagina.generos}" th:href="@{/wiki/genero(genero=${genero})}"
+                            th:text="${genero}" class="tag tag-link">Género</a>
+                    </div>
+                </div>
+
+                <!-- Plataformas -->
+                <div class="article-section"
+                    th:if="${pagina.plataformas != null and not #lists.isEmpty(pagina.plataformas)}">
+                    <h2>Plataformas</h2>
+                    <div class="tags-container">
+                        <a th:each="plataforma : ${pagina.plataformas}"
+                            th:href="@{/wiki/plataforma(plataforma=${plataforma})}" th:text="${plataforma}"
+                            class="tag tag-link">Plataforma</a>
+                    </div>
+                </div>
+
+                <!-- Trailer -->
+                <div class="article-section" th:if="${pagina.trailer != null and !pagina.trailer.isEmpty()}">
+                    <h2>Trailer</h2>
+                    <div class="video-container">
+                        <iframe
+                            th:src="${'https://www.youtube.com/embed/' + #strings.substringAfter(pagina.trailer, 'v=')}"
+                            frameborder="0" allowfullscreen title="Trailer del videojuego">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="article-footer">
+                    <a th:href="@{/wiki/lista}" class="btn btn-back">← Volver al índice</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Página no encontrada -->
+        <section class="content" th:if="${pagina == null}">
+            <div class="note">
+                <h2>Página no encontrada</h2>
+                <p>El videojuego que buscas no existe en nuestra wiki.</p>
+                <a th:href="@{/wiki/lista}" class="btn btn-primary">Ver todos los videojuegos</a>
             </div>
+        </section>
+    </main>
 
-            <div class="article-footer">
-                <a href="/wiki/lista" class="btn btn-back">← Volver al índice</a>
-            </div>
-        </article>
-    </section>
-</main>
+    <div th:replace="~{layout.html :: footer}"></div>
 
-<div th:insert="layout.html :: footer"></div>
-
-<script src="/js/app.js"></script>
+    <script src="/js/app.js"></script>
 
 </body>
+
 </html>

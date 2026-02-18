@@ -2,19 +2,19 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Wiki del curso - Taller Thymeleaf">
+    <meta name="description" content="Wiki de Videojuegos - Portal de documentación técnica">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Wiki del Curso</title>
+    <title>Inicio - Wiki de Videojuegos</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-<div th:insert="layout.html :: header"></div>
-<div th:insert="layout.html :: navigation"></div>
+<div th:replace="~{layout.html :: header}"></div>
+<div th:replace="~{layout.html :: navigation}"></div>
 
 <main class="container">
     <section class="content">
-        <h1>Bienvenido a la Wiki del Curso</h1>
+        <h1>Bienvenido a la Wiki de Videojuegos</h1>
         <p>
             Esta <strong>Wiki</strong> es una aplicación web desarrollada como parte del
             <em>Taller de Thymeleaf</em>. Su objetivo es organizar información técnica
@@ -25,9 +25,42 @@
             <strong>MVC</strong>, separando correctamente la lógica, las vistas y los datos.
         </p>
 
+        <div class="stats-banner">
+            <div class="stat-item">
+                <span class="stat-number" th:text="${totalPaginas}">0</span>
+                <span class="stat-label">Videojuegos documentados</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" th:text="${#lists.size(generos)}">0</span>
+                <span class="stat-label">Géneros disponibles</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" th:text="${#lists.size(recientes)}">0</span>
+                <span class="stat-label">Títulos recientes</span>
+            </div>
+        </div>
+
+        <h2>Géneros disponibles</h2>
+        <div class="tags-container" th:if="${not #lists.isEmpty(generos)}">
+            <span th:each="genero : ${generos}" class="tag" th:text="${genero}">Género</span>
+        </div>
+        <p th:if="${#lists.isEmpty(generos)}"><em>No hay géneros registrados aún.</em></p>
+
+        <h2>Títulos recientes</h2>
+        <div th:if="${not #lists.isEmpty(recientes)}">
+            <ul>
+                <li th:each="juego : ${recientes}">
+                    <a th:href="@{/wiki/pagina(slug=${juego.slug})}" th:text="${juego.titulo}">Título</a>
+                    <span class="badge" th:text="${juego.anioLanzamiento}">2022</span>
+                    <span class="badge badge-score" th:text="${juego.calificacion} + '/10'">9.5/10</span>
+                </li>
+            </ul>
+        </div>
+        <p th:if="${#lists.isEmpty(recientes)}"><em>No hay títulos recientes disponibles.</em></p>
+
         <h2>¿Qué encontrarás aquí?</h2>
         <ul>
-            <li><strong>Secciones de Wiki:</strong> Información técnica organizada por temas</li>
+            <li><strong>Secciones de Wiki:</strong> Información técnica organizada por videojuegos</li>
             <li><strong>Formulario de Contacto:</strong> Ponte en contacto con nosotros</li>
             <li><strong>Navegación Intuitiva:</strong> Acceso fácil a todas las secciones</li>
         </ul>
@@ -36,6 +69,8 @@
         <ul>
             <li>Spring Boot - Framework web</li>
             <li>Thymeleaf - Motor de plantillas server-side</li>
+            <li>H2 Database - Base de datos en memoria</li>
+            <li>JPA / Hibernate - ORM para persistencia</li>
             <li>HTML5 y CSS3 - Estructura y estilos</li>
             <li>Java 21 - Lenguaje de programación</li>
         </ul>
@@ -47,7 +82,7 @@
     </section>
 </main>
 
-<div th:insert="layout.html :: footer"></div>
+<div th:replace="~{layout.html :: footer}"></div>
 
 <script src="/js/app.js"></script>
 

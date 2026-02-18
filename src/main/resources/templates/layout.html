@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content)">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Wiki del curso - Taller Thymeleaf">
+    <meta name="description" content="Wiki de Videojuegos - Portal de documentación técnica">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${title} + ' - Wiki del Curso'">Wiki del Curso</title>
+    <title th:text="${title} + ' - Wiki de Videojuegos'">Wiki de Videojuegos</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header th:fragment="header">
-    <h1>Wiki del Curso</h1>
-    <p>Documentación y conceptos básicos de desarrollo web</p>
-</header>
+    <!-- HEADER -->
+    <header th:fragment="header">
+        <h1>Wiki de Videojuegos</h1>
+        <p>Portal de documentación técnica sobre videojuegos</p>
+    </header>
 
-<!-- NAVEGACIÓN -->
-<nav th:fragment="navigation">
-    <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/wiki/lista">Wiki</a></li>
-        <li><a href="/contacto/formulario">Contacto</a></li>
-    </ul>
-</nav>
+    <!-- NAVEGACIÓN -->
+    <nav th:fragment="navigation">
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/wiki/lista">Wiki</a></li>
+            <li><a href="/wiki/recientes">Recientes</a></li>
+            <li><a href="/wiki/mejores">Mejor Calificados</a></li>
+            <li><a href="/contacto/formulario">Contacto</a></li>
+        </ul>
+    </nav>
 
-<!-- CONTENIDO PRINCIPAL -->
-<main class="container">
-    <div th:replace="${content}"></div>
-</main>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="container">
+        <div th:replace="${content}"></div>
+    </main>
 
-<!-- FOOTER -->
-<footer th:fragment="footer">
-    <p>&copy; 2026 - Wiki del Curso | Taller Thymeleaf</p>
-</footer>
+    <!-- FOOTER -->
+    <footer th:fragment="footer">
+        <p>&copy; 2026 - Wiki de Videojuegos | Taller Thymeleaf - Grupo 1</p>
+    </footer>
 
-<script src="/js/app.js"></script>
+    <script src="/js/app.js"></script>
 
 </body>
+
 </html>
