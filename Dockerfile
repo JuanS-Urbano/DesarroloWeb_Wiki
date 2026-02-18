@@ -15,4 +15,8 @@ FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
+# Volumen para persistencia de H2
+VOLUME ["/app/data"]
+# Variable de entorno para H2 en Docker
+ENV SPRING_DATASOURCE_URL=jdbc:h2:file:/app/data/demo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=PostgreSQL
 ENTRYPOINT ["java", "-jar", "app.jar"]
