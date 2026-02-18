@@ -1,79 +1,351 @@
-<!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Wiki del curso - Taller Thymeleaf">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki del Curso</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Team Dinamita - Wiki</title>
 
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
+<style>
+    :root{
+      --green-900:#0b6b4f;
+      --green-800:#11835f;
+      --green-700:#199a6b;
+      --green-200:#dff3ea;
+      --green-150:#e9f7f1;
+      --ink:#0f172a;
+      --muted:#475569;
+      --border:#e5e7eb;
+      --card:#ffffff;
+      --shadow: 0 10px 25px rgba(2, 44, 34, .10);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:#ffffff;
+    }
+
+    .wrap{
+      width:min(1050px, 92vw);
+      margin:0 auto;
+      padding:28px 0 56px;
+    }
+
+    /* ====== HERO / HEADER ====== */
+    .hero-shell{
+      border:1px solid var(--border);
+      border-radius:22px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero-top{
+      background: linear-gradient(180deg, #6ec7a8 0%, #5dbf9c 100%);
+      padding:34px 22px 22px;
+      text-align:center;
+      position:relative;
+    }
+
+    .hero-top h1{
+      margin:0;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:.3px;
+      color:#ffffff;
+      font-weight:800;
+    }
+
+    .hero-top p{
+      margin:10px 0 0;
+      color: rgba(255,255,255,.92);
+      font-weight:500;
+      font-size:14px;
+    }
+
+    .nav{
+      background: linear-gradient(0deg, var(--green-700), #22a574);
+      padding:14px 16px;
+      display:flex;
+      justify-content:center;
+      gap:22px;
+    }
+
+    .nav a{
+      text-decoration:none;
+      color:#ffffff;
+      font-weight:700;
+      font-size:14px;
+      padding:8px 14px;
+      border-radius:12px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .nav a.active{
+      background: rgba(255,255,255,.18);
+      box-shadow: inset 0 -2px 0 rgba(255,255,255,.55);
+    }
+
+    /* ====== SECCIONES ====== */
+    main{ margin-top:26px; }
+
+    .section{
+      padding:14px 0;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:800;
+    }
+
+    .section-title::after{
+      content:"";
+      height:2px;
+      width:52px;
+      background: rgba(34, 165, 116, .55);
+      border-radius:99px;
+      transform: translateY(1px);
+    }
+
+    .section p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+      max-width: 860px;
+    }
+
+    /* ====== INTEGRANTES ====== */
+    .members{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px 18px;
+      margin-top:12px;
+    }
+
+    .member-card{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px 14px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    .avatar{
+      width:34px;
+      height:34px;
+      border-radius:10px;
+      background: var(--green-200);
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(17, 131, 95, .18);
+      flex:0 0 auto;
+    }
+
+    .avatar svg{
+      width:18px;height:18px;
+      fill:#334155;
+      opacity:.9;
+    }
+
+    .member-name{
+      font-weight:600;
+      color:#0f172a;
+      font-size:14px;
+    }
+
+    /* ====== TABLA ====== */
+    .table-wrap{
+      margin-top:16px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:14px;
+    }
+
+    thead th{
+      text-align:left;
+      padding:12px 14px;
+      background: var(--green-150);
+      color:#0f172a;
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.2px;
+    }
+
+    tbody td{
+      padding:12px 14px;
+      border-top:1px solid var(--border);
+      color:var(--muted);
+    }
+
+    tbody td:first-child{ color:#0f172a; font-weight:400; }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 800px){
+      .hero-top h1{ font-size:34px; }
+      .members{ grid-template-columns: 1fr; }
+      .nav{ flex-wrap:wrap; gap:10px; }
+    }
+  </style>
+</head>
+
 <body>
+  <div class="wrap">
 
-<header>
-    <h1>Wiki del Curso</h1>
-    <p>Documentación y conceptos básicos de desarrollo web</p>
-</header>
+    <!-- HEADER / NAV -->
+    <header class="hero-shell">
+      <div class="hero-top">
+        <h1>Team Dinamita</h1>
+        <p>Documentación y conceptos básicos de desarrollo web</p>
+      </div>
 
-<nav>
-    <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">HTML</a></li>
-        <li><a href="#">CSS</a></li>
-        <li><a href="#">Contacto</a></li>
-    </ul>
-</nav>
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="active" href="#inicio">Inicio</a>
+        <a href="#html">HTML</a>
+        <a href="#css">CSS</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
 
-<section>
-    <article>
-        <h2>¿Qué es esta Wiki?</h2>
+    <!-- CONTENIDO -->
+    <main id="inicio">
+      <section class="section" aria-labelledby="wiki">
+        <h2 class="section-title" id="wiki">¿Qué es una wiki?</h2>
         <p>
-            Esta <strong>Wiki</strong> es una aplicación web desarrollada como parte del
-            <em>Taller de Thymeleaf</em>. Su objetivo es organizar información técnica
-            de forma clara y estructurada.
+          Una wiki es un sitio web colaborativo donde la información se organiza en páginas que pueden crearse y
+          actualizarse fácilmente, permitiendo documentar conocimientos, procesos o proyectos de forma clara,
+          ordenada y accesible para todos los miembros de un equipo o comunidad.
         </p>
+      </section>
+
+      <section class="section" aria-labelledby="sirve">
+        <h2 class="section-title" id="sirve">¿Para qué sirve?</h2>
         <p>
-            El contenido se renderiza de manera dinámica y sigue el patrón
-            <strong>MVC</strong>, separando correctamente la lógica, las vistas y los datos.
+          Una wiki sirve para centralizar información, documentar proyectos, registrar procesos y compartir
+          conocimiento de forma organizada, permitiendo que un equipo consulte, actualice y mantenga la
+          información siempre disponible y actualizada.
         </p>
-    </article>
+      </section>
 
-    <article>
-        <h2>Tecnologías utilizadas</h2>
-        <ul>
-            <li>HTML para la estructura</li>
-            <li>CSS para el diseño visual</li>
-            <li>Thymeleaf como motor de plantillas</li>
-        </ul>
-    </article>
+      <section class="section" aria-labelledby="integrantes">
+        <h2 class="section-title" id="integrantes">Integrantes</h2>
 
-    <article>
-        <h2>Ejemplo de información estructurada</h2>
-        <table>
-            <tr>
-                <th>Elemento</th>
-                <th>Uso</th>
-            </tr>
-            <tr>
-                <td>&lt;header&gt;</td>
-                <td>Encabezado principal</td>
-            </tr>
-            <tr>
-                <td>&lt;nav&gt;</td>
-                <td>Navegación del sitio</td>
-            </tr>
-            <tr>
-                <td>&lt;section&gt;</td>
-                <td>Agrupar contenido</td>
-            </tr>
-        </table>
-    </article>
-</section>
+        <div class="members">
+          <div class="member-card">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/></svg>
+            </div>
+            <div class="member-name">Juan Diego Pardo</div>
+          </div>
 
-<footer>
-    <p>&copy; 2026 - Wiki del Curso | Taller Thymeleaf</p>
-</footer>
+          <div class="member-card">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/></svg>
+            </div>
+            <div class="member-name">Juan Sebastian Urbano</div>
+          </div>
 
+          <div class="member-card">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/></svg>
+            </div>
+            <div class="member-name">Santiago Martinez</div>
+          </div>
+
+          <div class="member-card">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/></svg>
+            </div>
+            <div class="member-name">Santiago Camargo</div>
+          </div>
+
+          <div class="member-card">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/></svg>
+            </div>
+            <div class="member-name">Julio César Useche Llanos</div>
+          </div>
+
+          <div class="member-card">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/></svg>
+            </div>
+            <div class="member-name">Sander Steven Bohórquez</div>
+          </div>
+
+          <div class="member-card">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"/></svg>
+            </div>
+            <div class="member-name">Yosefh Steven Peña</div>
+          </div>
+        </div>
+
+        <div class="table-wrap" role="region" aria-label="Tabla de tecnologías">
+          <table>
+            <thead>
+              <tr>
+                <th>TECNOLOGÍA</th>
+                <th>USO PRINCIPAL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HTML</td>
+                <td>Estructura del contenido</td>
+              </tr>
+              <tr>
+                <td>CSS</td>
+                <td>Presentación visual</td>
+              </tr>
+              <tr>
+                <td>JavaScript</td>
+                <td>Interactividad</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Secciones ancla del menú (puedes cambiarlas por contenido real) -->
+      <section class="section" id="html" aria-labelledby="html-title">
+        <h2 class="section-title" id="html-title">HTML</h2>
+        <p>Espacio para tu contenido de HTML (definiciones, etiquetas, ejemplos, etc.).</p>
+      </section>
+
+      <section class="section" id="css" aria-labelledby="css-title">
+        <h2 class="section-title" id="css-title">CSS</h2>
+        <p>Espacio para tu contenido de CSS (selectores, box model, flexbox, grid, etc.).</p>
+      </section>
+
+      <section class="section" id="contacto" aria-labelledby="contacto-title">
+        <h2 class="section-title" id="contacto-title">Contacto</h2>
+        <p>Puedes agregar correo, redes o un formulario de contacto aquí.</p>
+      </section>
+    </main>
+
+  </div>
 </body>
 </html>
