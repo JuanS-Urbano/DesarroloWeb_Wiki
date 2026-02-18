@@ -1,55 +1,90 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Wiki del curso - Taller Thymeleaf">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Wiki del Curso</title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::section})}">
+<section class="section-wrap">
 
-<div th:insert="layout.html :: header"></div>
-<div th:insert="layout.html :: navigation"></div>
-
-<main class="container">
-    <section class="content">
-        <h1>Bienvenido a la Wiki del Curso</h1>
-        <p>
-            Esta <strong>Wiki</strong> es una aplicación web desarrollada como parte del
-            <em>Taller de Thymeleaf</em>. Su objetivo es organizar información técnica
-            de forma clara y estructurada.
+    <section class="block">
+        <h2 class="block__title">¿Qué es una wiki?</h2>
+        <p class="block__text">
+            Una wiki es un sitio web colaborativo donde la información se organiza en páginas que pueden crearse y actualizarse
+            fácilmente, permitiendo documentar conocimientos, procesos o proyectos de forma clara, ordenada y accesible para
+            todos los miembros de un equipo o comunidad.
         </p>
-        <p>
-            El contenido se renderiza de manera dinámica y sigue el patrón
-            <strong>MVC</strong>, separando correctamente la lógica, las vistas y los datos.
+    </section>
+
+    <section class="block">
+        <h2 class="block__title">¿Para qué sirve?</h2>
+        <p class="block__text">
+            Una wiki sirve para centralizar información, documentar proyectos, registrar procesos y compartir conocimiento de forma
+            organizada, permitiendo que un equipo consulte, actualice y mantenga la información siempre disponible y actualizada.
         </p>
+    </section>
 
-        <h2>¿Qué encontrarás aquí?</h2>
-        <ul>
-            <li><strong>Secciones de Wiki:</strong> Información técnica organizada por temas</li>
-            <li><strong>Formulario de Contacto:</strong> Ponte en contacto con nosotros</li>
-            <li><strong>Navegación Intuitiva:</strong> Acceso fácil a todas las secciones</li>
-        </ul>
+    <section class="block">
+        <h2 class="block__title">Integrantes</h2>
 
-        <h2>Tecnologías utilizadas</h2>
-        <ul>
-            <li>Spring Boot - Framework web</li>
-            <li>Thymeleaf - Motor de plantillas server-side</li>
-            <li>HTML5 y CSS3 - Estructura y estilos</li>
-            <li>Java 21 - Lenguaje de programación</li>
-        </ul>
+        <div class="members">
+            <div class="member-card">
+                <div class="avatar"></div>
+                <span>Juan Diego Pardo</span>
+            </div>
 
-        <div class="button-group">
-            <a href="/wiki/lista" class="btn btn-primary">Ver documentación</a>
-            <a href="/contacto/formulario" class="btn btn-secondary">Contáctenos</a>
+            <div class="member-card">
+                <div class="avatar"></div>
+                <span>Juan Sebastian Urbano</span>
+            </div>
+
+            <div class="member-card">
+                <div class="avatar"></div>
+                <span>Santiago Martinez</span>
+            </div>
+
+            <div class="member-card">
+                <div class="avatar"></div>
+                <span>Santiago Camargo</span>
+            </div>
+
+            <div class="member-card">
+                <div class="avatar"></div>
+                <span>Julio César Useche Llanos</span>
+            </div>
+
+            <div class="member-card">
+                <div class="avatar"></div>
+                <span>Sander Steven Bohórquez</span>
+            </div>
+
+            <div class="member-card">
+                <div class="avatar"></div>
+                <span>Yosefh Steven Peña</span>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table class="soft-table">
+                <thead>
+                <tr>
+                    <th>TECNOLOGÍA</th>
+                    <th>USO PRINCIPAL</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>HTML</td>
+                    <td>Estructura del contenido</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>Presentación visual</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Interactividad</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </section>
-</main>
 
-<div th:insert="layout.html :: footer"></div>
-
-<script src="/js/app.js"></script>
-
-</body>
+</section>
 </html>
