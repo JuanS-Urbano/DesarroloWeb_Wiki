@@ -40,6 +40,25 @@
             </div>
         </div>
 
+        <h2>Juegos destacados</h2>
+        <div class="games-grid" th:if="${not #lists.isEmpty(recientes)}">
+            <div th:each="juego,iterStat : ${recientes}" th:if="${iterStat.index < 6}" th:class="${'game-card ' + ('game-theme-' + ((iterStat.index % 6) + 1))}">
+                <a th:href="@{/wiki/pagina(slug=${juego.slug})}" class="wiki-card-link">
+                    <div class="game-header">
+                            <img class="game-thumb" th:src="${juego.imagenPortada}" onerror="handleImgError(this)" th:alt="${juego.titulo}"
+                                th:attr="data-alt=${juego.slug == 'minecraft'} ? '/images/minecraft.webp' : (${juego.slug == 'the-legend-of-zelda-breath-of-the-wild'} ? '/images/zelda-botw.webp' : (${juego.slug == 'the-witcher-3'} ? '/images/The_Witcher_3_Portada.webp' : ''))" />
+                        <div>
+                            <div class="game-title" th:text="${juego.titulo}">Título</div>
+                            <div class="game-meta">
+                                <span class="badge" th:text="${juego.anioLanzamiento}">2023</span>
+                                <span class="badge badge-score" th:text="${juego.calificacion} + '/10'">9.5/10</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
         <h2>Géneros disponibles</h2>
         <div class="tags-container" th:if="${not #lists.isEmpty(generos)}">
             <span th:each="genero : ${generos}" class="tag" th:text="${genero}">Género</span>

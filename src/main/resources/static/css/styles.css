@@ -1,6 +1,3 @@
-/* ======================= */
-/* Reset básico            */
-/* ======================= */
 * {
     margin: 0;
     padding: 0;
@@ -8,16 +5,29 @@
     box-sizing: border-box;
 }
 
-/* ======================= */
-/* Estructura general      */
-/* ======================= */
+:root {
+    --bg: #0b1220; /* page background */
+    --surface: #0f1724; /* content surfaces */
+    --surface-2: #0b1420; /* slightly different surface */
+    --text: #e6eef8; /* primary text */
+    --muted: #9aa7b2; /* secondary text */
+    --primary: #3b82f6; /* primary accent (links, buttons) */
+    --primary-dark: #2563eb;
+    --accent: #7c3aed; /* secondary accent (tags, highlights) */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --card-shadow: 0 6px 20px rgba(2,6,23,0.6);
+}
+
+
 html, body {
     height: 100%;
 }
 
 body {
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: var(--bg);
+    color: var(--text);
     display: flex;
     flex-direction: column;
 }
@@ -30,11 +40,11 @@ main {
 /* Header                  */
 /* ======================= */
 header {
-    background-color: #2c3e50;
-    color: white;
+    background-color: var(--surface-2);
+    color: var(--text);
     padding: 30px 20px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
 }
 
 header h1 {
@@ -51,8 +61,8 @@ header p {
 /* Navegación              */
 /* ======================= */
 nav {
-    background-color: #34495e;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--surface);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
 nav ul {
@@ -89,10 +99,10 @@ nav ul li a:hover {
 }
 
 .content {
-    background-color: white;
+    background-color: var(--surface);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
 }
 
 /* ======================= */
@@ -103,10 +113,10 @@ article, section {
 }
 
 h1 {
-    color: #2c3e50;
+    color: var(--text);
     font-size: 2em;
     margin-bottom: 20px;
-    border-bottom: 3px solid #3498db;
+    border-bottom: 3px solid var(--primary);
     padding-bottom: 10px;
 }
 
@@ -150,12 +160,12 @@ ul li, ol li {
 .stat-item {
     flex: 1;
     min-width: 150px;
-    background: linear-gradient(135deg, #3498db, #2c3e50);
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     color: white;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
 }
 
 .stat-number {
@@ -182,12 +192,12 @@ ul li, ol li {
 
 .tag {
     display: inline-block;
-    background-color: #ecf0f1;
-    color: #2c3e50;
+    background-color: #f1f3f5;
+    color: #000000;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.85em;
-    border: 1px solid #bdc3c7;
+    border: 1px solid #e6e9ec;
 }
 
 .tag-link {
@@ -197,21 +207,21 @@ ul li, ol li {
 }
 
 .tag-link:hover {
-    background-color: #3498db;
+    background-color: var(--accent);
     color: white;
-    border-color: #3498db;
+    border-color: var(--accent);
 }
 
 .tag-active {
-    background-color: #3498db;
+    background-color: var(--accent);
     color: white;
-    border-color: #3498db;
+    border-color: var(--accent);
 }
 
 .badge {
     display: inline-block;
-    background-color: #ecf0f1;
-    color: #555;
+    background-color: #f1f3f5;
+    color: #000000;
     padding: 3px 10px;
     border-radius: 12px;
     font-size: 0.8em;
@@ -283,7 +293,7 @@ ul li, ol li {
 .filter-group strong {
     display: block;
     margin-bottom: 8px;
-    color: #2c3e50;
+    color: #000000;
 }
 
 .filter-actions {
@@ -322,18 +332,18 @@ ul li, ol li {
 .wiki-card-link {
     display: block;
     padding: 20px;
-    background-color: #f8f9fa;
-    border-left: 4px solid #3498db;
+    background-color: #ffffff;
+    border-left: 4px solid var(--primary);
     text-decoration: none;
-    color: #2c3e50;
+    color: #000000;
     transition: all 0.3s ease;
     border-radius: 4px;
 }
 
 .wiki-card-link:hover {
-    background-color: #e8f0fe;
+    background-color: #f6f8fa;
     border-left-width: 6px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 24px rgba(2,6,23,0.06);
 }
 
 .wiki-card-header {
@@ -349,12 +359,12 @@ ul li, ol li {
 }
 
 .wiki-arrow {
-    color: #3498db;
+    color: var(--primary);
     font-size: 1.2em;
 }
 
 .wiki-card-desc {
-    color: #666;
+    color: #333;
     font-size: 0.92em;
     margin-bottom: 10px;
     line-height: 1.5;
@@ -369,6 +379,112 @@ ul li, ol li {
     flex-wrap: wrap;
     gap: 5px;
 }
+
+
+/* Paletas oficiales aproximadas por juego (ajusta si quieres colores exactos) */
+/* 1 - The Legend of Zelda: Breath of the Wild (verde/teal) */
+.game-theme-1 { --accent: #6aa84f; --accent-dark: #4d7a37; }
+/* 2 - Elden Ring (oro) */
+.game-theme-2 { --accent: #d4af37; --accent-dark: #a88724; }
+/* 3 - God of War: Ragnarök (rojo intenso) */
+.game-theme-3 { --accent: #b71c1c; --accent-dark: #8f1515; }
+/* 4 - Minecraft (verde césped) */
+.game-theme-4 { --accent: #57a639; --accent-dark: #3f7a28; }
+/* 5 - The Witcher 3: Wild Hunt (ámbar / naranja caja) */
+.game-theme-5 { --accent: #d35400; --accent-dark: #9a3900; }
+/* 6 - Hades (magenta/rosado) */
+.game-theme-6 { --accent: #ff2d55; --accent-dark: #cc2646; }
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin: 20px 0 30px 0;
+}
+
+.game-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 6px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #000000;
+}
+
+.game-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.game-card .game-header {
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.game-card .game-thumb {
+    width:64px;
+    height:64px;
+    border-radius:8px;
+    object-fit:cover;
+    flex-shrink:0;
+    border: 2px solid #e6e9ec;
+}
+
+.game-card .game-title {
+    font-size:1.15em;
+    font-weight:700;
+    color: var(--accent-dark, #2c3e50);
+}
+
+.game-card .game-meta {
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+.game-card .game-desc {
+    color:#666;
+    font-size:0.95em;
+    line-height:1.5;
+}
+
+.game-pill-nav {
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:16px;
+    justify-content:center;
+}
+
+.game-pill {
+    padding:8px 12px;
+    border-radius:20px;
+    background-color: rgba(255,255,255,0.03);
+    color: var(--text);
+    font-weight:700;
+    cursor:pointer;
+    border: 2px solid transparent;
+    transition: all 0.18s ease;
+}
+
+.game-pill:hover { transform: translateY(-2px); }
+
+.game-pill.active { background-color: var(--accent); color: white; border-color: rgba(0,0,0,0.06); }
+
+/* Helper: allow coloring existing wiki-card-link by theme when placed
+   inside a theme container */
+.game-theme-1 .wiki-card-link { border-left-color: var(--accent); }
+.game-theme-2 .wiki-card-link { border-left-color: var(--accent); }
+.game-theme-3 .wiki-card-link { border-left-color: var(--accent); }
+.game-theme-4 .wiki-card-link { border-left-color: var(--accent); }
+.game-theme-5 .wiki-card-link { border-left-color: var(--accent); }
+.game-theme-6 .wiki-card-link { border-left-color: var(--accent); }
 
 /* ======================= */
 /* Detalle de juego        */
@@ -606,14 +722,14 @@ textarea {
 }
 
 .btn-primary {
-    background-color: #3498db;
+    background-color: var(--primary);
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #2980b9;
+    background-color: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
 }
 
 .btn-secondary {
@@ -689,6 +805,36 @@ tr:hover {
     background-color: #d5dbdb;
 }
 
+/* Asegurar texto legible en superficies claras */
+table td {
+    color: #000000;
+}
+
+.contact-summary,
+.success-message,
+.note {
+    color: #000000;
+}
+
+.contact-summary *,
+.success-message *,
+.note * {
+    color: inherit;
+}
+
+.filters-container,
+.filters-container label,
+.filter-group,
+.filter-group * {
+    color: #000000;
+}
+
+.tags-container .tag,
+.badge {
+    color: #000000;
+}
+
+
 /* ======================= */
 /* Mensajes y notas        */
 /* ======================= */
@@ -737,6 +883,40 @@ tr:hover {
     margin-top: 20px;
 }
 
+/* Forzar texto negro en la página de detalle del juego */
+.wiki-article,
+.wiki-article * {
+    color: inherit;
+}
+
+.game-info-grid .info-card {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #e6e9ec;
+}
+
+.game-info-grid .info-card strong {
+    color: #000000;
+}
+
+.article-body,
+.article-body p,
+.article-body h2,
+.article-body h3 {
+    color: var(--text);
+}
+
+.classification-badge,
+.classification-badge span,
+.age-badge {
+    color: #000000;
+}
+
+.wiki-article h1,
+.wiki-article h2 {
+    color: var(--text);
+}
+
 .button-group {
     margin-top: 30px;
     padding-top: 20px;
@@ -753,12 +933,12 @@ tr:hover {
 /* Footer                  */
 /* ======================= */
 footer {
-    background-color: #2c3e50;
-    color: white;
+    background-color: var(--surface-2);
+    color: var(--text);
     text-align: center;
     padding: 20px;
     margin-top: auto;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 -6px 18px rgba(0,0,0,0.5);
 }
 
 footer p {

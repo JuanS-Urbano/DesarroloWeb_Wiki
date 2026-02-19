@@ -60,26 +60,31 @@
                 <p>Resultados para: <strong th:text="${busqueda}">búsqueda</strong></p>
             </div>
 
-            <!-- Lista de videojuegos -->
+            <!-- Lista de videojuegos (grid con temas por juego) -->
             <div class="wiki-section" th:if="${not #lists.isEmpty(pagina)}">
-                <div class="wiki-grid">
-                    <div th:each="juego : ${pagina}" class="wiki-card">
-                        <a th:href="@{/wiki/pagina(slug=${juego.slug})}" class="wiki-card-link">
-                            <div class="wiki-card-header">
-                                <span class="wiki-title" th:text="${juego.titulo}">Título</span>
-                                <span class="wiki-arrow">→</span>
-                            </div>
-                            <p class="wiki-card-desc" th:text="${juego.contenido}">Descripción</p>
-                            <div class="wiki-card-meta">
-                                <span class="badge" th:text="${juego.desarrollador}">Dev</span>
-                                <span class="badge badge-score" th:text="${juego.calificacion} + '/10'">9.5/10</span>
-                                <span class="badge" th:text="${juego.anioLanzamiento}">2022</span>
-                            </div>
-                            <div class="wiki-card-tags">
-                                <span th:each="genero : ${juego.generos}" class="mini-tag"
-                                    th:text="${genero}">Genero</span>
-                            </div>
-                        </a>
+                <div class="games-grid">
+                    <div th:each="juego, iterStat : ${pagina}"
+                         th:class="${'game-theme-' + ((iterStat.index % 6) + 1)}">
+                        <article class="game-card">
+                            <a th:href="@{/wiki/pagina(slug=${juego.slug})}" class="wiki-card-link">
+                                <div class="game-header">
+                                     <img class="game-thumb" th:src="${juego.imagenPortada}" th:alt="${juego.titulo}"
+                                         onerror="handleImgError(this)"
+                                         th:attr="data-alt=${juego.slug == 'minecraft'} ? '/images/minecraft.webp' : (${juego.slug == 'the-legend-of-zelda-breath-of-the-wild'} ? '/images/zelda-botw.webp' : (${juego.slug == 'the-witcher-3'} ? '/images/The_Witcher_3_Portada.webp' : ''))" />
+                                    <div>
+                                        <div class="game-title" th:text="${juego.titulo}">Título</div>
+                                        <div class="game-meta">
+                                            <span class="badge badge-score" th:text="${juego.calificacion} + '/10'">9.5/10</span>
+                                            <span class="badge" th:text="${juego.anioLanzamiento}">2022</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="game-desc" th:text="${juego.contenido}">Descripción</p>
+                                <div class="wiki-card-tags">
+                                    <span th:each="genero : ${juego.generos}" class="mini-tag" th:text="${genero}">Genero</span>
+                                </div>
+                            </a>
+                        </article>
                     </div>
                 </div>
             </div>
