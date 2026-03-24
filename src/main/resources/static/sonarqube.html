@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modulo SonarQube - Nuestras pruebas Unitarias">
+    <title>SonarQube | Nuestras pruebas Unitarias</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <p class="badge">Modulo independiente</p>
+        <h1>SonarQube</h1>
+        <p>Metricas de calidad, cobertura y Quality Gate.</p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/junit.html">JUnit</a></li>
+        <li><a href="/postman.html">Postman</a></li>
+        <li><a href="/jmeter.html">JMeter</a></li>
+        <li><a href="/sonarqube.html">SonarQube</a></li>
+        <li><a href="/desarrollo.html">Desarrollo</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="panel process-card">
+        <h2>Validacion de calidad con SonarQube</h2>
+        <p><strong>Objetivo:</strong> asegurar cumplimiento de metricas de calidad, especialmente cobertura mayor a 80%.</p>
+        <p><strong>Base tecnica:</strong> plugin JaCoCo configurado en pom.xml, generacion de reportes tras test.</p>
+        <p><strong>Procedimiento:</strong></p>
+        <ol>
+            <li>Ejecutar pruebas con cobertura (<code>.\mvnw clean test</code>).</li>
+            <li>Verificar metricas de cobertura global.</li>
+            <li>Publicar analisis en SonarQube y confirmar Quality Gate.</li>
+        </ol>
+        <p><strong>Resultado de cobertura local registrado:</strong> Instruction Coverage 87.15%, Line Coverage 89.67%.</p>
+    </section>
+
+    <section class="panel">
+        <h2>Evidencia SonarQube</h2>
+        <figure class="evidence-card">
+            <figcaption>Captura SonarQube</figcaption>
+            <img src="/img/sonarqube.png" alt="Evidencia de pruebas SonarQube" class="evidence-image">
+        </figure>
+    </section>
+
+    <section class="panel process-card">
+        <h2>Conclusion</h2>
+        <p>Juanito haz este modulo por fa y haz lo de Sonar tambien por fa.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 - Nuestras pruebas Unitarias | SonarQube</p>
+</footer>
+</body>
+</html>

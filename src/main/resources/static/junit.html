@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modulo JUnit - Nuestras pruebas Unitarias">
+    <title>JUnit | Nuestras pruebas Unitarias</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <p class="badge">Modulo independiente</p>
+        <h1>JUnit</h1>
+        <p>Pruebas unitarias para backend Java.</p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/junit.html">JUnit</a></li>
+        <li><a href="/postman.html">Postman</a></li>
+        <li><a href="/jmeter.html">JMeter</a></li>
+        <li><a href="/sonarqube.html">SonarQube</a></li>
+        <li><a href="/desarrollo.html">Desarrollo</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="panel process-card">
+        <h2>Pruebas unitarias con JUnit (backend Java)</h2>
+        <p><strong>Objetivo:</strong> validar logica de negocio y controladores de forma aislada, detectando regresiones tempranas.</p>
+        <p><strong>Herramientas:</strong> JUnit 5, Mockito, Spring Boot Test, Maven Surefire.</p>
+        <p><strong>Base de pruebas:</strong> ActividadServiceImplTest.java, ControllerCoverageBoostTest.java y demas tests del paquete.</p>
+        <p><strong>Procedimiento:</strong></p>
+        <ol>
+            <li>Preparar entorno Java/Maven.</li>
+            <li>Ejecutar suite completa con <code>.\mvnw clean test</code>.</li>
+            <li>Analizar salida de consola, reportes Surefire y cobertura JaCoCo.</li>
+        </ol>
+        <p><strong>Criterio de aceptacion:</strong> 0 errores, 0 fallos, cobertura funcional suficiente para Quality Gate.</p>
+        <p><strong>Resultado obtenido:</strong> 171 tests ejecutados, 0 fallos, 0 errores.</p>
+    </section>
+
+    <section class="panel">
+        <h2>Evidencia JUnit</h2>
+        <div class="gallery-grid">
+            <figure class="evidence-card">
+                <figcaption>JUnit - Ejecucion de tests</figcaption>
+                <img src="/img/junit/junit-1.png?v=1" alt="Evidencia de ejecucion de pruebas JUnit" class="evidence-image" onerror="this.onerror=null;this.src='/img/junit-1.png?v=1';">
+                <p>En este punto se ejecuta la suite de pruebas unitarias y se valida que los casos principales respondan correctamente.</p>
+            </figure>
+            <figure class="evidence-card">
+                <figcaption>JUnit - Resultado final</figcaption>
+                <img src="/img/junit/junit-2.png" alt="Evidencia de resultado final de JUnit" class="evidence-image">
+                <p>Aqui se confirma el resumen final de ejecucion, verificando fallos y errores para cerrar la validacion del modulo.</p>
+            </figure>
+        </div>
+    </section>
+
+    <section class="panel process-card">
+        <h2>Conclusion</h2>
+        <p>La ejecucion con JUnit confirmo la estabilidad de la logica del backend y ayudo a prevenir regresiones durante el desarrollo.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 - Nuestras pruebas Unitarias | JUnit</p>
+</footer>
+</body>
+</html>
