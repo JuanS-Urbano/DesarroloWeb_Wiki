@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modulo JMeter - Nuestras pruebas Unitarias">
+    <title>JMeter | Nuestras pruebas Unitarias</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <p class="badge">Modulo independiente</p>
+        <h1>JMeter</h1>
+        <p>Pruebas de carga, smoke y estres.</p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/junit.html">JUnit</a></li>
+        <li><a href="/postman.html">Postman</a></li>
+        <li><a href="/jmeter.html">JMeter</a></li>
+        <li><a href="/sonarqube.html">SonarQube</a></li>
+        <li><a href="/desarrollo.html">Desarrollo</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="panel process-card">
+        <h2>Pruebas de carga con JMeter</h2>
+        <p><strong>Objetivo:</strong> medir estabilidad y tiempos de respuesta bajo distintos niveles de concurrencia.</p>
+        <p><strong>Artefacto principal:</strong> ProyectoWeb_API_TestPlan.jmx.</p>
+        <p><strong>Configuracion incluida en el plan:</strong></p>
+        <ol>
+            <li>Variables globales (base_protocol, base_host, base_port, conn_timeout, resp_timeout).</li>
+            <li>Escenario Smoke.</li>
+            <li>Escenario de Carga.</li>
+            <li>Escenario de Estres.</li>
+        </ol>
+        <p><strong>Procedimiento:</strong></p>
+        <ol>
+            <li>Levantar API local en <code>http://localhost:8080</code>.</li>
+            <li>Verificar salud con <code>/actuator/health</code>.</li>
+            <li>Ejecutar JMeter en modo no GUI.</li>
+            <li>Generar <code>.jtl</code> y dashboard HTML.</li>
+        </ol>
+        <p><strong>Comando de ejecucion usado:</strong></p>
+        <pre><code>"C:\Users\julio\Downloads\apache-jmeter-5.6.3\apache-jmeter-5.6.3\bin\jmeter.bat" -n -t ProyectoWeb_API_TestPlan.jmx -l run.jtl -e -o .\jmeter\results\run-report</code></pre>
+        <p><strong>Evidencia:</strong> run.jtl, index.html.</p>
+    </section>
+
+    <section class="panel">
+        <h2>Evidencia JMeter</h2>
+        <div class="gallery-grid">
+            <figure class="evidence-card">
+                <figcaption>JMeter - Plan de prueba</figcaption>
+                <img src="/img/jmeter/jmeter-1.png" alt="Evidencia del plan de pruebas en JMeter" class="evidence-image">
+                <p>En este momento se configura el plan de pruebas con escenarios, variables y parametros base para la ejecucion.</p>
+            </figure>
+            <figure class="evidence-card">
+                <figcaption>JMeter - Ejecucion de carga</figcaption>
+                <img src="/img/jmeter/jmeter-3.png" alt="Evidencia de ejecucion de carga en JMeter" class="evidence-image">
+                <p>Aqui se corre la prueba de carga para observar concurrencia, tiempos de respuesta y comportamiento del servicio.</p>
+            </figure>
+            <figure class="evidence-card">
+                <figcaption>JMeter - Resultado por peticiones</figcaption>
+                <img src="/img/jmeter/jmeter-4.png" alt="Evidencia de resultados de peticiones en JMeter" class="evidence-image">
+                <p>En esta evidencia se analizan metricas por request, tasa de errores y latencia promedio durante la prueba.</p>
+            </figure>
+            <figure class="evidence-card">
+                <figcaption>JMeter - Resumen final</figcaption>
+                <img src="/img/jmeter/jmeter-5.png" alt="Evidencia de resumen final en JMeter" class="evidence-image">
+                <p>Al final se consolida el reporte general para evaluar estabilidad y capacidad del sistema bajo demanda.</p>
+            </figure>
+        </div>
+    </section>
+
+    <section class="panel process-card">
+        <h2>Resumen corto del "400"</h2>
+        <p>No se encontraron respuestas HTTP 400 en run.jtl.</p>
+        <p>Resultados: 687 respuestas con codigo 200 y 16 errores por timeout (SocketTimeoutException).</p>
+        <p>El valor 4000 ms corresponde a una regla de tiempo maxima en el plan, no a un codigo 400 de la API.</p>
+    </section>
+
+    <section class="panel process-card">
+        <h2>Conclusion</h2>
+        <p>JMeter permitio medir el comportamiento bajo carga y verificar que la API mantiene estabilidad en escenarios de smoke, carga y estres.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 - Nuestras pruebas Unitarias | JMeter</p>
+</footer>
+</body>
+</html>

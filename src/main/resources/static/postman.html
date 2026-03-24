@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modulo Postman - Nuestras pruebas Unitarias">
+    <title>Postman | Nuestras pruebas Unitarias</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <p class="badge">Modulo independiente</p>
+        <h1>Postman</h1>
+        <p>Pruebas funcionales y validacion de API REST.</p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/junit.html">JUnit</a></li>
+        <li><a href="/postman.html">Postman</a></li>
+        <li><a href="/jmeter.html">JMeter</a></li>
+        <li><a href="/sonarqube.html">SonarQube</a></li>
+        <li><a href="/desarrollo.html">Desarrollo</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="panel process-card">
+        <h2>Pruebas de API con Postman</h2>
+        <p><strong>Objetivo:</strong> validar contratos HTTP, tiempos y estructura de respuestas de endpoints clave.</p>
+        <p><strong>Entorno del proyecto:</strong> localhost - proyecto_web.</p>
+        <p><strong>Artefactos:</strong></p>
+        <ol>
+            <li>Coleccion: Proyecto_Web_API.postman_collection.json</li>
+            <li>Environment: Proyecto_Web_Environment.postman_environment.json</li>
+            <li>Guia: README.md</li>
+        </ol>
+        <p><strong>Procedimiento:</strong></p>
+        <ol>
+            <li>Importar coleccion y environment en Postman Desktop.</li>
+            <li>Seleccionar environment local (baseUrl=http://localhost:8080, proyecto_web).</li>
+            <li>Ejecutar coleccion en Runner.</li>
+            <li>Revisar tests de estado HTTP, tiempo de respuesta y estructura JSON.</li>
+        </ol>
+        <p><strong>Validaciones implementadas:</strong> status 200 (y 404 permitido donde aplica), tiempo maximo por request, estructura esperada de ApiResponse o error controlado.</p>
+    </section>
+
+    <section class="panel process-card">
+        <h2>Anexo: Configuracion y resultados JMeter</h2>
+        <p>Asi quedo configurado JMeter en el proyecto:</p>
+
+        <h3>1. Archivo principal del plan</h3>
+        <p>ProyectoWeb_API_TestPlan.jmx</p>
+
+        <h3>2. Escenarios y usuarios configurados</h3>
+        <p><strong>01 - Smoke</strong></p>
+        <ul>
+            <li>1 usuario (hilo)</li>
+            <li>ramp-up: 1 segundo</li>
+            <li>1 iteracion</li>
+            <li>endpoints: /actuator/health y /api/v1/empresas</li>
+        </ul>
+
+        <p><strong>02 - Carga</strong></p>
+        <ul>
+            <li>30 usuarios</li>
+            <li>ramp-up: 60 segundos</li>
+            <li>10 iteraciones por usuario</li>
+            <li>endpoint: /api/v1/empresas</li>
+            <li>think time: 200 ms</li>
+        </ul>
+
+        <p><strong>03 - Estres</strong></p>
+        <ul>
+            <li>80 usuarios</li>
+            <li>ramp-up: 80 segundos</li>
+            <li>5 iteraciones por usuario</li>
+            <li>endpoint: /actuator/health</li>
+        </ul>
+
+        <h3>3. Variables globales usadas</h3>
+        <ul>
+            <li>base_protocol = http</li>
+            <li>base_host = localhost</li>
+            <li>base_port = 8080</li>
+            <li>conn_timeout = 5000</li>
+            <li>resp_timeout = 5000</li>
+        </ul>
+        <p>Estas variables tambien estan dentro de ProyectoWeb_API_TestPlan.jmx y explicadas en README.md.</p>
+
+        <h3>4. Donde se guardaron los resultados</h3>
+        <ul>
+            <li>Archivo crudo de ejecucion: run.jtl</li>
+            <li>Reporte HTML para abrir en navegador: index.html</li>
+            <li>Carpeta completa del reporte: run-report</li>
+        </ul>
+
+        <h3>Resumen corto del "400"</h3>
+        <p>No se encontraron respuestas HTTP 400 en run.jtl.</p>
+        <p>Resultados: 687 respuestas con codigo 200 y 16 errores por timeout (SocketTimeoutException).</p>
+        <p>El valor 4000 ms corresponde a una regla de tiempo maxima en el plan, no a un codigo 400 de la API.</p>
+    </section>
+
+    <section class="panel">
+        <h2>Evidencia Postman</h2>
+        <div class="gallery-grid">
+            <figure class="evidence-card">
+                <figcaption>Postman - Configuracion de requests</figcaption>
+                <img src="/img/postman/postman-1.png" alt="Evidencia de configuracion en Postman" class="evidence-image">
+                <p>En esta captura se prepara la solicitud al endpoint y se valida que la coleccion use el entorno correcto.</p>
+            </figure>
+            <figure class="evidence-card">
+                <figcaption>Postman - Validacion de respuesta</figcaption>
+                <img src="/img/postman/postman2.png" alt="Evidencia de validacion de respuesta en Postman" class="evidence-image">
+                <p>Aqui se revisa el resultado del request, incluyendo estado HTTP, tiempo de respuesta y estructura del cuerpo JSON.</p>
+            </figure>
+        </div>
+    </section>
+
+    <section class="panel process-card">
+        <h2>Conclusion</h2>
+        <p>Las pruebas en Postman validaron los contratos de la API y permitieron comprobar respuestas, tiempos y manejo de errores esperados.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 - Nuestras pruebas Unitarias | Postman</p>
+</footer>
+</body>
+</html>

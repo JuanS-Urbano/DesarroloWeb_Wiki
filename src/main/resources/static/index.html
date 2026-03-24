@@ -2,9 +2,9 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Wiki del curso - Taller Thymeleaf">
+    <meta name="description" content="Nuestras pruebas Unitarias - Proyecto de calidad de software">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki del Curso</title>
+    <title>Nuestras pruebas Unitarias</title>
 
     <link rel="stylesheet" href="/css/styles.css">
 </head>
@@ -12,67 +12,84 @@
 <body>
 
 <header>
-    <h1>Wiki del Curso</h1>
-    <p>Documentación y conceptos básicos de desarrollo web</p>
+    <div class="header-content">
+        <p class="badge">Grupo Dinamita</p>
+        <h1>Nuestras pruebas Unitarias</h1>
+        <p>Espacio central para documentar evidencias, herramientas y avances del desarrollo.</p>
+    </div>
 </header>
 
 <nav>
     <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">HTML</a></li>
-        <li><a href="#">CSS</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/junit.html">JUnit</a></li>
+        <li><a href="/postman.html">Postman</a></li>
+        <li><a href="/jmeter.html">JMeter</a></li>
+        <li><a href="/sonarqube.html">SonarQube</a></li>
+        <li><a href="/desarrollo.html">Desarrollo</a></li>
     </ul>
 </nav>
 
-<section>
-    <article>
-        <h2>¿Qué es esta Wiki?</h2>
+<main>
+    <section id="inicio" class="panel">
+        <article>
+            <h2>Objetivo del sitio</h2>
+            <p>
+                Esta pagina esta enfocada en mostrar el trabajo del equipo en pruebas de software,
+                validaciones de API, pruebas de rendimiento y analisis de calidad del codigo.
+            </p>
+            <p>
+                Aqui reunimos resultados, evidencias y notas del proceso de desarrollo para tener un
+                seguimiento claro del proyecto.
+            </p>
+            <p>
+                Selecciona cada modulo para ver el detalle en paginas separadas.
+            </p>
+        </article>
+    </section>
+
+    <section class="panel">
+        <h2>Modulos del proyecto</h2>
+        <div class="tool-grid">
+            <article class="tool-card">
+                <h3>JUnit</h3>
+                <p>Pruebas unitarias para backend Java.</p>
+                <p><a href="/junit.html">Ir a pagina JUnit</a></p>
+            </article>
+            <article class="tool-card">
+                <h3>Postman</h3>
+                <p>Pruebas funcionales de API REST.</p>
+                <p><a href="/postman.html">Ir a pagina Postman</a></p>
+            </article>
+            <article class="tool-card">
+                <h3>JMeter</h3>
+                <p>Pruebas de carga, smoke y estres.</p>
+                <p><a href="/jmeter.html">Ir a pagina JMeter</a></p>
+            </article>
+            <article class="tool-card">
+                <h3>SonarQube</h3>
+                <p>Cobertura, calidad y Quality Gate.</p>
+                <p><a href="/sonarqube.html">Ir a pagina SonarQube</a></p>
+            </article>
+        </div>
+    </section>
+
+    <section id="desarrollo" class="panel">
+        <h2>Desarrollo y conclusion</h2>
         <p>
-            Esta <strong>Wiki</strong> es una aplicación web desarrollada como parte del
-            <em>Taller de Thymeleaf</em>. Su objetivo es organizar información técnica
-            de forma clara y estructurada.
+            Se definio y ejecuto un flujo integral de pruebas: unitarias (JUnit), rendimiento (JMeter),
+            API funcional (Postman) y calidad continua (SonarQube).
         </p>
         <p>
-            El contenido se renderiza de manera dinámica y sigue el patrón
-            <strong>MVC</strong>, separando correctamente la lógica, las vistas y los datos.
+            El proceso permitio detectar y corregir inconsistencias de tests, estabilizar ejecucion
+            automatica y superar el umbral de cobertura requerido para calidad.
         </p>
-    </article>
-
-    <article>
-        <h2>Tecnologías utilizadas</h2>
-        <ul>
-            <li>HTML para la estructura</li>
-            <li>CSS para el diseño visual</li>
-            <li>Thymeleaf como motor de plantillas</li>
-        </ul>
-    </article>
-
-    <article>
-        <h2>Ejemplo de información estructurada</h2>
-        <table>
-            <tr>
-                <th>Elemento</th>
-                <th>Uso</th>
-            </tr>
-            <tr>
-                <td>&lt;header&gt;</td>
-                <td>Encabezado principal</td>
-            </tr>
-            <tr>
-                <td>&lt;nav&gt;</td>
-                <td>Navegación del sitio</td>
-            </tr>
-            <tr>
-                <td>&lt;section&gt;</td>
-                <td>Agrupar contenido</td>
-            </tr>
-        </table>
-    </article>
-</section>
+        <p><a href="/desarrollo.html">Ver pagina de desarrollo</a></p>
+    </section>
+</main>
 
 <footer>
-    <p>&copy; 2026 - Wiki del Curso | Taller Thymeleaf</p>
+    <p>&copy; 2026 - Nuestras pruebas Unitarias | Proyecto de Desarrollo y Calidad</p>
 </footer>
 
 </body>
