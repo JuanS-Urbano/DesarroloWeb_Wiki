@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,123 +8,184 @@
     <title>Desarrollo | Nuestras pruebas Unitarias</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
-<header>
-    <div class="header-content">
-        <p class="badge">Modulo independiente</p>
-        <h1>Desarrollo</h1>
-        <p>Bitacora del proyecto: como se hizo, dailys y avance.</p>
-    </div>
-</header>
-
-<nav>
-    <ul>
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/junit.html">JUnit</a></li>
-        <li><a href="/postman.html">Postman</a></li>
-        <li><a href="/jmeter.html">JMeter</a></li>
-        <li><a href="/sonarqube.html">SonarQube</a></li>
-        <li><a href="/desarrollo.html">Desarrollo</a></li>
-    </ul>
-</nav>
-
-<main>
-    <section class="panel process-card">
-        <h2>Como se hizo el proyecto</h2>
-        <p>Espacio en blanco para documentar el proceso general de desarrollo.</p>
-        <p>...............................................................</p>
-        <p>...............................................................</p>
-        <p>...............................................................</p>
-    </section>
-
-    <section class="panel">
-        <h2>Dailys</h2>
-        <div class="process-grid">
-            <article class="process-card">
-                <h3>Daily 1</h3>
-                <p>Fecha: ____ / ____ / ______</p>
-                <p>Responsable: ____________________</p>
-                <p>Notas: ____________________________________________</p>
-            </article>
-            <article class="process-card">
-                <h3>Daily 2</h3>
-                <p>Fecha: ____ / ____ / ______</p>
-                <p>Responsable: ____________________</p>
-                <p>Notas: ____________________________________________</p>
-            </article>
-            <article class="process-card">
-                <h3>Daily 3</h3>
-                <p>Fecha: ____ / ____ / ______</p>
-                <p>Responsable: ____________________</p>
-                <p>Notas: ____________________________________________</p>
-            </article>
-            <article class="process-card">
-                <h3>Daily 4</h3>
-                <p>Fecha: ____ / ____ / ______</p>
-                <p>Responsable: ____________________</p>
-                <p>Notas: ____________________________________________</p>
-            </article>
-            <article class="process-card">
-                <h3>Daily 5</h3>
-                <p>Fecha: ____ / ____ / ______</p>
-                <p>Responsable: ____________________</p>
-                <p>Notas: ____________________________________________</p>
-            </article>
-            <article class="process-card">
-                <h3>Daily 6</h3>
-                <p>Fecha: ____ / ____ / ______</p>
-                <p>Responsable: ____________________</p>
-                <p>Notas: ____________________________________________</p>
-            </article>
-            <article class="process-card">
-                <h3>Daily 7</h3>
-                <p>Fecha: ____ / ____ / ______</p>
-                <p>Responsable: ____________________</p>
-                <p>Notas: ____________________________________________</p>
-            </article>
-            <article class="process-card">
-                <h3>Daily 8</h3>
-                <p>Fecha: ____ / ____ / ______</p>
-                <p>Responsable: ____________________</p>
-                <p>Notas: ____________________________________________</p>
-            </article>
+    <header>
+        <div class="header-content">
+            <p class="badge">Modulo independiente</p>
+            <h1>Desarrollo</h1>
+            <p>Bitácora del proyecto: cómo se hizo, dailys y avance.</p>
         </div>
-    </section>
+    </header>
 
-    <section class="panel">
-        <h2>Avance</h2>
-        <table>
-            <tr>
-                <th>Tarea</th>
-                <th>Estado</th>
-                <th>Comentario</th>
-            </tr>
-            <tr>
-                <td>________________________________</td>
-                <td>Pendiente / En proceso / Completado</td>
-                <td>________________________________</td>
-            </tr>
-            <tr>
-                <td>________________________________</td>
-                <td>Pendiente / En proceso / Completado</td>
-                <td>________________________________</td>
-            </tr>
-            <tr>
-                <td>________________________________</td>
-                <td>Pendiente / En proceso / Completado</td>
-                <td>________________________________</td>
-            </tr>
-        </table>
-    </section>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/junit.html">JUnit</a></li>
+            <li><a href="/postman.html">Postman</a></li>
+            <li><a href="/jmeter.html">JMeter</a></li>
+            <li><a href="/sonarqube.html">SonarQube</a></li>
+            <li><a href="/desarrollo.html">Desarrollo</a></li>
+        </ul>
+    </nav>
 
-    <section class="panel process-card">
-        <h2>Conclusion</h2>
-        <p>Juanito haz este modulo por fa y haz lo de Sonar tambien por fa.</p>
-    </section>
-</main>
+    <main>
+        <section class="panel process-card">
+            <h2>Cómo se hizo el proyecto</h2>
+            <p>El proyecto "Editor de Procesos" fue desarrollado siguiendo una metodología ágil (Scrum) dividida en
+                3 Sprints estratégicos, pactados formalmente entre el 4 y el 22 de marzo de 2026. La organización se
+                planteó asignando de forma cruzada a un equipo técnico (7 "Devs" virtuales) labores críticas orientadas
+                a construir el Core del Backend utilizando Java, Spring Boot y PostgreSQL.</p>
+            <p>El flujo priorizó asentar la arquitectura multi-tenant en el Sprint 1, dar vida al motor de lógica
+                relacional BPMN (Nodos, Lanes y Arcos) en el Sprint 2 y, por último asegurar permisos robustos,
+                mensajería y la pulcritud de código en el Sprint 3. Garantizamos la estabilidad obligando a que
+                cualquier funcionalidad estuviera apoyada fuertemente por Pruebas Unitarias utilizando JUnit 5 y Mockito
+                antes de combinarse con la rama principal.</p>
+        </section>
 
-<footer>
-    <p>&copy; 2026 - Nuestras pruebas Unitarias | Desarrollo</p>
-</footer>
+        <section class="panel">
+            <h2>Dailys</h2>
+            <div class="process-grid">
+                <article class="process-card">
+                    <h3>Daily 1</h3>
+                    <p><strong>Fecha:</strong> 04 / 03 / 2026</p>
+                    <p><strong>Objetivos:</strong> Levantar los cimientos del sistema, definir autenticación y
+                        establecer la arquitectura base de repositorios y servicios.</p>
+                    <p><strong>Notas:</strong> Se trabajó en conjunto para montar las entidades fundamentales: Empresa y
+                        Usuario. Dev 1 y Dev 2 se encargaron del registro corporativo (HU-01) y perfiles (HU-02),
+                        mientras Dev 3 preparó un control de Autenticación. Simultáneamente se estructuraron
+                        las plantillas de Pool y Proceso iniciales.</p>
+                </article>
+                <article class="process-card">
+                    <h3>Daily 2</h3>
+                    <p><strong>Fecha:</strong> 09 / 03 / 2026</p>
+                    <p><strong>Objetivos:</strong> Primera integración profunda inter-módulos y cierre formal del Sprint
+                        1.</p>
+                    <p><strong>Notas:</strong> Tuvimos cuellos de botella con errores "No Autorizado (403)" que no
+                        dejaban vincular procesos porque el token pasaba vacio a la validación corporativa. Se depuró en
+                        conjunto conectando el servicio de auth simulado; tras superarlo, la primera rama unificada del
+                        Sprint ingresó a <i>Develop</i>.</p>
+                </article>
+                <article class="process-card">
+                    <h3>Daily 3</h3>
+                    <p><strong>Fecha:</strong> 11 / 03 / 2026</p>
+                    <p><strong>Objetivos:</strong> Inicio del Sprint 2 y partición de responsabilidades para el Motor de
+                        Diagramado en base de datos.</p>
+                    <p><strong>Notas:</strong> Acordamos las dependencias mutuas: Dev 1 programaría 'Actividades', Dev 2
+                        'Lanes', Dev 3 sus 'Gateways', y Dev
+                        4 prepararía el terreno armando los 'Arcos' de enlace. Se dictaminó regla estricta: un Arco no
+                        puede existir si falla al validar sus puntas (origen/destino).</p>
+                </article>
+                <article class="process-card">
+                    <h3>Daily 4</h3>
+                    <p><strong>Fecha:</strong> 14 / 03 / 2026</p>
+                    <p><strong>Objetivos:</strong> Arreglos a mitad del Sprint 2 y discusión arquitectónica sobre
+                        conflictos en la ramificación.</p>
+                    <p><strong>Notas:</strong> Tuvimos cruces de código entre la creación de Lanes y Actividades por
+                        reescribir inyecciones ajenas. Tras esto surgió el reto de la fase: el borrado. Si un
+                        backend borra un Gateway y este poseía Arcos trazados, se generaban líneas de código "huérfanas"
+                        y corruptas. Pactamos el proceso defensivo de "Saneamiento cruzado" inyectando cascadas en BD.
+                    </p>
+                </article>
+                <article class="process-card">
+                    <h3>Daily 5</h3>
+                    <p><strong>Fecha:</strong> 17 / 03 / 2026</p>
+                    <p><strong>Objetivos:</strong> Comprobación de aseguramiento de calidad y despliegue del Sprint
+                        2.</p>
+                    <p><strong>Notas:</strong> Detectamos omisiones simples (falta del DELETE seguro para Lanes si
+                        poseía contenido interno), por lo que se resolvieron rápidamente de forma preventiva. Con un
+                        pull request masivo cerramos todo el lienzo y sus validaciones en la base de PostgreSQL, pasando
+                        todas las pruebas pactadas.</p>
+                </article>
+                <article class="process-card">
+                    <h3>Daily 6</h3>
+                    <p><strong>Fecha:</strong> 18 / 03 / 2026</p>
+                    <p><strong>Objetivos:</strong> Arranque de Sprint 3. Foco absoluto en la mensajería, eventos y
+                        sistemas de roles duros.</p>
+                    <p><strong>Notas:</strong> Tres Devs se adueñaron de los eventos BPMN (Throw, Catch, Correlación).
+                        Crearon la lógica `correlateMessages` enlazando las rutinas mediante `businessKey`.</p>
+                </article>
+                <article class="process-card">
+                    <h3>Daily 7</h3>
+                    <p><strong>Fecha:</strong> 20 / 03 / 2026</p>
+                    <p><strong>Objetivos:</strong> Resolución de incidencias tras implementar el robusto sistema de
+                        Permisos.</p>
+                    <p><strong>Notas:</strong> Al incluir las clases `PermisosPoolService` que prohibían drásticamente
+                        acciones a los perfiles tipo 'Lector', reventamos masivamente 11 de nuestras Suites de Testing
+                        arrojando `NullPointerExceptions` en todos lados. La banda paró labores funcionales y todos
+                        ayudamos al equipo a rehacer inyecciones puras, actualizando constructores globales.</p>
+                </article>
+                <article class="process-card">
+                    <h3>Daily 8</h3>
+                    <p><strong>Fecha:</strong> 22 / 03 / 2026</p>
+                    <p><strong>Objetivos:</strong> Pruebas Unitarias definitivas y cierre oficial del Release Candidate
+                        Fase 1.</p>
+                    <p><strong>Notas:</strong> Liderado por Dev 4, el saneamiento dio una merecida recompensa. Tras
+                        configurar adecuadamente nuestros `AssertJ` y Mocks, lanzamos una orden `mvn clean test` global.
+                        Exitosamente marcamos: **158 tests en verde (100% pase sin fallos ni errores)**. Un build
+                        perfecto en menos de un minuto nos entregó una API lista.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Avance Cierre del Desarrollo (Fase Core)</h2>
+            <table>
+                <tr>
+                    <th>Épica / Capa Lógica</th>
+                    <th>Estado</th>
+                    <th>Comentario</th>
+                </tr>
+                <tr>
+                    <td>Arquitectura general, Autenticación temporal y Setup Tenant</td>
+                    <td>Completado ✅</td>
+                    <td>Base sólida consolidada al finalizar Sprint 1.</td>
+                </tr>
+                <tr>
+                    <td>Motor lógico Actividad-Lane-Gateway en diagramas</td>
+                    <td>Completado ✅</td>
+                    <td>Funciones operan y validan geometría y pertenencia.</td>
+                </tr>
+                <tr>
+                    <td>Capa de sanidad de Arcos y supresión cruzada</td>
+                    <td>Completado ✅</td>
+                    <td>Limpieza en BD automática para nodos desvinculados lograda.</td>
+                </tr>
+                <tr>
+                    <td>Comportamiento de Eventos y Comunicaciones BPMN</td>
+                    <td>Completado ✅</td>
+                    <td>Throw/Catch cruzado en funcionamiento lógicamente validado.</td>
+                </tr>
+                <tr>
+                    <td>Segregación fuerte por Roles y Ocultamiento de entidades</td>
+                    <td>Completado ✅</td>
+                    <td>API restringe creación a roles Lector e independiza vistas.</td>
+                </tr>
+                <tr>
+                    <td>Entregable técnico y Suite Completa de JUnit/Testing</td>
+                    <td>Completado ✅</td>
+                    <td>Alcanzada cifra máxima. 158 Tests resguardan el código.</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="panel process-card">
+            <h2>Conclusión del Proyecto</h2>
+            <p>El desarrollo del Editor de Procesos concluye con un backend robusto, escalable y altamente estabilizado.
+                A lo largo de los tres Sprints, la sinergia del equipo y la metodología ágil fueron cruciales para
+                superar desafíos técnicos complejos; desde garantizar la consistencia relacional del grafo BPMN y
+                manejar el borrado en cascada, hasta la integración de un estricto sistema de permisos por roles. La
+                comunicación constante en estas reuniones diarias (Dailys) nos permitió anticipar cuellos de botella y
+                diseñar soluciones de saneamiento cruzado efectivas. Todo este esfuerzo colaborativo culmina en la
+                entrega de una API sólida y protegida por una cobertura de pruebas excepcional (158 tests exitosos en
+                verde), sentando bases inquebrantables de calidad y las mejores prácticas en Ingeniería de Software
+                listas para producción.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Nuestras pruebas Unitarias | Desarrollo</p>
+    </footer>
 </body>
+
 </html>
