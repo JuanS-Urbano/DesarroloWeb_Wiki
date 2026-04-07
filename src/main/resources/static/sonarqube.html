@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Modulo SonarQube - Nuestras pruebas Unitarias">
     <title>SonarQube | Nuestras pruebas Unitarias</title>
-    <link rel="stylesheet" href="/css/tests_styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -17,9 +17,10 @@
             <p>Metricas de calidad, cobertura y Quality Gate.</p>
         </div>
     </header>
+
     <nav>
         <ul>
-            <li><a href="/tests.html">Inicio</a></li>
+            <li><a href="/index.html">Inicio</a></li>
             <li><a href="/junit.html">JUnit</a></li>
             <li><a href="/postman.html">Postman</a></li>
             <li><a href="/jmeter.html">JMeter</a></li>
@@ -27,14 +28,13 @@
             <li><a href="/desarrollo.html">Desarrollo</a></li>
         </ul>
     </nav>
+
     <main>
         <section class="panel process-card">
             <h2>Validacion de calidad con SonarQube</h2>
-            <p><strong>Objetivo:</strong> asegurar cumplimiento de metricas de calidad, especialmente cobertura
-                mayor a
+            <p><strong>Objetivo:</strong> asegurar cumplimiento de metricas de calidad, especialmente cobertura mayor a
                 80%.</p>
-            <p><strong>Base tecnica:</strong> plugin JaCoCo configurado en pom.xml, generacion de reportes tras
-                test.
+            <p><strong>Base tecnica:</strong> plugin JaCoCo configurado en pom.xml, generacion de reportes tras test.
             </p>
             <p><strong>Procedimiento:</strong></p>
             <ol>
@@ -57,16 +57,12 @@
         <section class="panel process-card">
             <h2>Conclusiones del Proyecto — Análisis SonarQube</h2>
             <p>El análisis estático realizado por SonarQube sobre el proyecto <strong>ProyectoWeb
-                    (v0.0.1-SNAPSHOT)</strong>, compuesto por <strong>3.4k líneas de código</strong>, arroja
-                resultados
-                altamente satisfactorios que validan la calidad del desarrollo llevado a cabo por el equipo durante
-                los
+                    (v0.0.1-SNAPSHOT)</strong>, compuesto por <strong>3.4k líneas de código</strong>, arroja resultados
+                altamente satisfactorios que validan la calidad del desarrollo llevado a cabo por el equipo durante los
                 tres Sprints.</p>
             <h3>Quality Gate: Aprobado</h3>
-            <p>El proyecto superó exitosamente el <em>Quality Gate</em> de SonarQube, lo cual certifica que el
-                código
-                nuevo cumple con todos los estándares mínimos de calidad exigidos en las cinco dimensiones
-                evaluadas:
+            <p>El proyecto superó exitosamente el <em>Quality Gate</em> de SonarQube, lo cual certifica que el código
+                nuevo cumple con todos los estándares mínimos de calidad exigidos en las cinco dimensiones evaluadas:
                 issues, cobertura, duplicación y seguridad.</p>
             <h3>Cero Issues Nuevos</h3>
             <p>No se detectó ningún <em>issue</em> nuevo ni aceptado en el código producido desde el 12 de marzo de
@@ -74,40 +70,32 @@
                 entre desarrolladores fueron efectivas, manteniendo el código libre de code smells, bugs y
                 vulnerabilidades desde su concepción.</p>
             <h3>Cobertura de Código: 80.4%</h3>
-            <p>Se alcanzó una cobertura del <strong>80.4%</strong> sobre <strong>708 líneas nuevas</strong>,
-                superando
+            <p>Se alcanzó una cobertura del <strong>80.4%</strong> sobre <strong>708 líneas nuevas</strong>, superando
                 el umbral mínimo requerido del 80%. Esto fue posible gracias a la disciplina del equipo de acompañar
-                cada Historia de Usuario con sus respectivas pruebas unitarias en JUnit 5 y Mockito, culminando con
-                un
-                total de 158 tests exitosos sin fallos ni errores. Este porcentaje demuestra que la gran mayoría de
-                las
+                cada Historia de Usuario con sus respectivas pruebas unitarias en JUnit 5 y Mockito, culminando con un
+                total de 158 tests exitosos sin fallos ni errores. Este porcentaje demuestra que la gran mayoría de las
                 rutas lógicas del sistema están protegidas ante regresiones futuras.</p>
             <h3>Duplicación: 0.86%</h3>
-            <p>El índice de duplicación se mantuvo en apenas <strong>0.86%</strong> sobre <strong>6.3k
-                    líneas</strong>
+            <p>El índice de duplicación se mantuvo en apenas <strong>0.86%</strong> sobre <strong>6.3k líneas</strong>
                 analizadas, muy por debajo del límite permitido del 3%. Este resultado refleja un diseño modular
                 adecuado, donde los servicios compartidos (como <code>PermisosPoolService</code>) centralizaron la
-                lógica común en lugar de replicarla en cada componente, evitando la deuda técnica por código
-                repetido.
+                lógica común en lugar de replicarla en cada componente, evitando la deuda técnica por código repetido.
             </p>
             <h3>Seguridad: Calificación A — Cero Hotspots</h3>
-            <p>No se identificó ningún <em>Security Hotspot</em>, obteniendo la calificación máxima
-                (<strong>A</strong>)
-                en seguridad. Esto indica que el código no presenta puntos vulnerables conocidos que requieran
-                revisión
-                manual, lo cual es un logro significativo considerando que el sistema maneja autenticación, permisos
-                por
+            <p>No se identificó ningún <em>Security Hotspot</em>, obteniendo la calificación máxima (<strong>A</strong>)
+                en seguridad. Esto indica que el código no presenta puntos vulnerables conocidos que requieran revisión
+                manual, lo cual es un logro significativo considerando que el sistema maneja autenticación, permisos por
                 roles y validaciones de acceso multi-tenant.</p>
             <h3>Conclusión General</h3>
             <p>Los resultados de SonarQube confirman que el backend del Editor de Procesos no solo es funcionalmente
-                completo, sino que cumple con los más altos estándares de calidad de software. La combinación de
-                pruebas
+                completo, sino que cumple con los más altos estándares de calidad de software. La combinación de pruebas
                 unitarias exhaustivas, un diseño arquitectónico libre de redundancias y la ausencia total de
                 vulnerabilidades posiciona a este proyecto como un entregable maduro, mantenible y listo para su
                 evolución en fases posteriores. El equipo logró un <strong>Zero Bug Build</strong> verificable y
                 auditable.</p>
         </section>
     </main>
+
 
     <footer>
         <p>&copy; 2026 - Nuestras pruebas Unitarias | SonarQube</p>
